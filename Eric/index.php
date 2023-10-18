@@ -4,21 +4,35 @@ $db_nombre = "Users";
 $db_usuario = "root";
 $db_passwd = "";
 
-
-$identifier= $_POST['identifier'];
-$rol= $_POST['rol'];
-$nombre= $_POST['namee'];
-$subnombre= $_POST['surname'];
-$email= $_POST['email'];
-$password= $_POST['passwd'];
-$activo= $_POST['activo'];
-
-
-
 $connexio = mysqli_connect($db_host,$db_usuario,$db_passwd,$db_nombre);
 
-$consulta = "INSERT into Users(identifier,rol,namee,surname,email,passwd,activo";
+if (!$connexio) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
 
-$Users = mysqli_query($connexio,$consulta);
+if(isset($_POST['send'])){
+    $identifier= $_POST['identifier'];
+    $rol= $_POST['rol'];
+    $nombre= $_POST['namee'];
+    $subnombre= $_POST['surname'];
+    $email= $_POST['email'];
+    $passwd= $_POST['passwd'];
+    $activo= $_POST['activo'];
 
+    $consulta = "INSERT into `user`(`id`, `rol`, `name`, `surname`, `password`, `email`, `active`) Values (
+        '$identifier',
+        '$rol',
+        '$nombre',
+        '$subnombre',
+        '$email',
+        '$passwd',
+        '$activo')";
+    
+    if (mysqli_query($connexio, $consulta)) {
+        echo "Datos insertados correctamente.";
+    } else {
+        echo "Error al insertar datos: " . mysqli_error($connexio);
+    }
+}
+mysqli_close($connexio);
 ?>
