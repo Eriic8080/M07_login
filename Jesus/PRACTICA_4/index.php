@@ -6,9 +6,13 @@
     $db_passwd = "";
 
     $connexio = mysqli_connect($db_host, $db_usuario, $db_passwd, $db_nombre);
-
-    echo "hola";
-    var_dump($connexio);
+    
+    if (!$connexio) {
+        die("Conexión Fallida: " . mysqli_connect_error());
+    } else {
+        echo "Conexión exitosa";
+    }
+   
 
     if(isset($_POST['send'])){
         $id = $_POST['id'];
@@ -28,20 +32,15 @@
             '$email',
             '$active'
         )";
-        
-        echo $consulta;
-        echo "HOLAAA";
 
+        var_dump($consulta);
+        echo "HOLA1";
         if(mysqli_query($connexio, $consulta)){
-            echo "Datos introducidos!"
+            echo "Datos introducidos!";
         }else{
-            echo "Error!"
+            echo "Error: " . mysqli_error($connexio);
         }
-        echo "conexion";
-      
-       
-
-        var_dump($users);
-        
+        echo "HOLA2";
     }
+    mysqli_close($connexio);
 ?>
