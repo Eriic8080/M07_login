@@ -1,14 +1,5 @@
 <?php
-$db_host = "localhost";
-$db_nombre = "Users";
-$db_usuario = "root";
-$db_passwd = "";
-
-$connexio = mysqli_connect($db_host,$db_usuario,$db_passwd,$db_nombre);
-
-if (!$connexio) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
+include_once('../db.connection.php');
 
 if(isset($_POST['send'])){
     $identifier= $_POST['identifier'];
@@ -19,7 +10,7 @@ if(isset($_POST['send'])){
     $passwd= $_POST['passwd'];
     $activo= $_POST['activo'];
 
-    $consulta = "INSERT into `user`(`id`, `rol`, `name`, `surname`, `password`, `email`, `active`) Values (
+    $consulta = "INSERT into `user`(`id`, `rol`, `name`, `surname`, `email`,`password`, `active`) Values (
         '$identifier',
         '$rol',
         '$nombre',
@@ -29,10 +20,10 @@ if(isset($_POST['send'])){
         '$activo')";
     
     if (mysqli_query($connexio, $consulta)) {
-        echo "Datos insertados correctamente.";
+        echo "La inserció és correcta. <a href='../views/login.html'>Iniciar Session</a>";
+        
     } else {
         echo "Error al insertar datos: " . mysqli_error($connexio);
     }
 }
-mysqli_close($connexio);
 ?>
