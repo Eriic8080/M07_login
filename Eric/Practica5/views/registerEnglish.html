@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+</head>
+
+<body>
+    <h1>Create User</h1>
+    <form method="POST" action="../crear_usuari/index.php">
+        <h3>ID:<input name="identifier"></input><h3>
+        <h3>ROL:<select name="rol">
+            <option value="P">Teacher</option>
+            <option value="A">Student</option>
+        </select><h3>
+        <h3>NAME:<input name="namee"></input><h3>
+        <h3>SURNAME:<input name="surname"></input><h3>
+        <h3>EMAIL:<input type="email" name="email"></input><h3>
+        <h3>PASSWORD:<input name="passwd"></input><h3>
+        <h3>ACTIVE:<input type="checkbox" name="activo"></input><h3>
+        <input type="submit" value="Submit" name = "send"/><br>
+        <a href="loginEnglish.html">Login</a>
+        <a href="../cookie/deleteCookie.php">Delete Cookie</a>
+        <a href="../views/seleccio_idioma.php">Language</a>
+
+    </form>
+</body>
+</html>
