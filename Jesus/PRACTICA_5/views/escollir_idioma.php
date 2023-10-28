@@ -23,11 +23,11 @@
             <td>Escoge Idioma</td>
         </tr>
         <tr>
-            <td align="center"><a href="loginEspañol.html?idioma=es">
+            <td align="center"><a href="../cookies/CrearCookie.php?idioma=es">
             <img src="spanishFlag.png" width="90" height="60"></a><h1>ESPAÑA</h1>
-            <td align="center"><a href="loginEnglish.html?idioma=en">
+            <td align="center"><a href="../cookies/CrearCookie.php?idioma=en">
             <img src="britishFlag.png" width="90" height="60"></a><h1>ENGLISH</h1>
-            <td align="center"><a href="loginCatalan.html?idioma=cat">
+            <td align="center"><a href="../cookies/CrearCookie.php?idioma=cat">
             <img src="catalanFlag.png" width="90" height="60"></a><h1>CATALAN</h1>
         </tr>
     </table>
