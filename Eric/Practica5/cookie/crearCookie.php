@@ -9,9 +9,10 @@
 
     <?php
         echo "<h1>Creem cookies</h1>";
-        setcookie("sel_idioma",$_GET['idioma'],time()+86400);
+        setcookie("sel_idioma",$_GET['idioma']);
 
         header('Location: ver_cookie.php');
+
     ?>
     
 </body>
